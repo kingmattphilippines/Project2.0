@@ -114,4 +114,3 @@ Partial Class OwnerListForm
         Friend WithEvents DataGridViewOWNERS As DataGridView
         Friend WithEvents Button1 As Button
     End Class
-

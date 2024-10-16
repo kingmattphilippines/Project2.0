@@ -136,4 +136,14 @@ Public Class OwnerForm
     Private Sub ButtonClose_Click(sender As Object, e As EventArgs) Handles ButtonClose.Click
         Close()
     End Sub
+
+    Private Sub ButtonSHOW_OWNER_PROPERTIES_Click(sender As Object, e As EventArgs) Handles ButtonSHOW_OWNER_PROPERTIES.Click
+
+        Dim ownerPropsF As New OwnerPropertiesForm()
+        Dim ownerId As Integer = Convert.ToInt32(DataGridViewOWNERS.CurrentRow.Cells(0).Value)
+        ownerPropsF.getProperties(ownerId)
+        ownerPropsF.ShowDialog()
+
+
+    End Sub
 End Class

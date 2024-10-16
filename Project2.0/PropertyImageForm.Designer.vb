@@ -29,6 +29,8 @@ Partial Class PropertyImageForm
         Panel2 = New Panel()
         Label1 = New Label()
         Panel3 = New Panel()
+        ButtonRefresh = New Button()
+        Button_ShowAllProperties = New Button()
         DataGridViewTypes = New DataGridView()
         DataGridViewProperties = New DataGridView()
         ListBox_Images = New ListBox()
@@ -36,7 +38,6 @@ Partial Class PropertyImageForm
         PictureBox_PropImage = New PictureBox()
         btnAddImage = New Button()
         Button_SelectImages = New Button()
-        Button_ShowProperty = New Button()
         Label4 = New Label()
         Label3 = New Label()
         Label2 = New Label()
@@ -61,7 +62,7 @@ Partial Class PropertyImageForm
         Panel_Menu.Location = New Point(-4, 0)
         Panel_Menu.Margin = New Padding(2)
         Panel_Menu.Name = "Panel_Menu"
-        Panel_Menu.Size = New Size(1198, 829)
+        Panel_Menu.Size = New Size(1195, 829)
         Panel_Menu.TabIndex = 3
         ' 
         ' ButtonClosedImages
@@ -98,7 +99,7 @@ Partial Class PropertyImageForm
         ' Label1
         ' 
         Label1.AutoSize = True
-        Label1.Font = New Font("Gill Sans Ultra Bold", 26.0F, FontStyle.Regular, GraphicsUnit.Point)
+        Label1.Font = New Font("Gill Sans Ultra Bold", 26F, FontStyle.Regular, GraphicsUnit.Point)
         Label1.ForeColor = Color.White
         Label1.Location = New Point(155, 9)
         Label1.Margin = New Padding(2, 0, 2, 0)
@@ -110,6 +111,8 @@ Partial Class PropertyImageForm
         ' Panel3
         ' 
         Panel3.BackColor = Color.LemonChiffon
+        Panel3.Controls.Add(ButtonRefresh)
+        Panel3.Controls.Add(Button_ShowAllProperties)
         Panel3.Controls.Add(DataGridViewTypes)
         Panel3.Controls.Add(DataGridViewProperties)
         Panel3.Controls.Add(ListBox_Images)
@@ -117,7 +120,6 @@ Partial Class PropertyImageForm
         Panel3.Controls.Add(PictureBox_PropImage)
         Panel3.Controls.Add(btnAddImage)
         Panel3.Controls.Add(Button_SelectImages)
-        Panel3.Controls.Add(Button_ShowProperty)
         Panel3.Controls.Add(Label4)
         Panel3.Controls.Add(Label3)
         Panel3.Controls.Add(Label2)
@@ -126,6 +128,26 @@ Partial Class PropertyImageForm
         Panel3.Name = "Panel3"
         Panel3.Size = New Size(1172, 640)
         Panel3.TabIndex = 4
+        ' 
+        ' ButtonRefresh
+        ' 
+        ButtonRefresh.BackColor = Color.Turquoise
+        ButtonRefresh.Location = New Point(29, 581)
+        ButtonRefresh.Name = "ButtonRefresh"
+        ButtonRefresh.Size = New Size(250, 37)
+        ButtonRefresh.TabIndex = 26
+        ButtonRefresh.Text = "Refresh All"
+        ButtonRefresh.UseVisualStyleBackColor = False
+        ' 
+        ' Button_ShowAllProperties
+        ' 
+        Button_ShowAllProperties.BackColor = Color.Turquoise
+        Button_ShowAllProperties.Location = New Point(311, 582)
+        Button_ShowAllProperties.Name = "Button_ShowAllProperties"
+        Button_ShowAllProperties.Size = New Size(356, 37)
+        Button_ShowAllProperties.TabIndex = 25
+        Button_ShowAllProperties.Text = "Show this Property Images"
+        Button_ShowAllProperties.UseVisualStyleBackColor = False
         ' 
         ' DataGridViewTypes
         ' 
@@ -201,18 +223,6 @@ Partial Class PropertyImageForm
         Button_SelectImages.Text = "Select Image"
         Button_SelectImages.UseVisualStyleBackColor = False
         ' 
-        ' Button_ShowProperty
-        ' 
-        Button_ShowProperty.BackColor = Color.MediumTurquoise
-        Button_ShowProperty.ForeColor = Color.White
-        Button_ShowProperty.Location = New Point(311, 579)
-        Button_ShowProperty.Margin = New Padding(2)
-        Button_ShowProperty.Name = "Button_ShowProperty"
-        Button_ShowProperty.Size = New Size(356, 40)
-        Button_ShowProperty.TabIndex = 17
-        Button_ShowProperty.Text = "Show This Property Images"
-        Button_ShowProperty.UseVisualStyleBackColor = False
-        ' 
         ' Label4
         ' 
         Label4.AutoSize = True
@@ -273,7 +283,7 @@ Partial Class PropertyImageForm
         ' 
         ' PropertyImageForm
         ' 
-        AutoScaleDimensions = New SizeF(8.0F, 20.0F)
+        AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.LightPink
         ClientSize = New Size(1184, 754)
@@ -304,7 +314,6 @@ Partial Class PropertyImageForm
     Private Label4 As Label
     Private Label3 As Label
     Private Label2 As Label
-    Private Button_ShowProperty As Button
     Private PanelLeft As Panel
     Private PanelRight As Panel
     Private WithEvents Button_SelectImages As Button
@@ -316,4 +325,7 @@ Partial Class PropertyImageForm
     Friend WithEvents DataGridViewProperties As DataGridView
     Friend WithEvents DataGridViewTypes As DataGridView
     Friend WithEvents ButtonClosedImages As Button
+    Private WithEvents Button_Refresh As Button
+    Friend WithEvents ButtonRefresh As Button
+    Friend WithEvents Button_ShowAllProperties As Button
 End Class

@@ -29,8 +29,8 @@ Partial Class MainForm
         Button_Owner = New Button()
         SALES = New Button()
         Panel1 = New Panel()
-        Button2 = New Button()
-        Button3 = New Button()
+        Button_Client = New Button()
+        Button_Property = New Button()
         ButtonIMAGES = New Button()
         ButtonTypes = New Button()
         PanelLeft = New Panel()
@@ -69,8 +69,8 @@ Partial Class MainForm
         Panel2.Controls.Add(Button_Owner)
         Panel2.Controls.Add(SALES)
         Panel2.Controls.Add(Panel1)
-        Panel2.Controls.Add(Button2)
-        Panel2.Controls.Add(Button3)
+        Panel2.Controls.Add(Button_Client)
+        Panel2.Controls.Add(Button_Property)
         Panel2.Controls.Add(ButtonIMAGES)
         Panel2.Controls.Add(ButtonTypes)
         Panel2.Location = New Point(104, 2)
@@ -114,31 +114,31 @@ Partial Class MainForm
         Panel1.Size = New Size(1202, 8)
         Panel1.TabIndex = 5
         ' 
-        ' Button2
+        ' Button_Client
         ' 
-        Button2.BackColor = Color.NavajoWhite
-        Button2.Font = New Font("Cooper Black", 11F, FontStyle.Regular, GraphicsUnit.Point)
-        Button2.ForeColor = Color.MidnightBlue
-        Button2.Location = New Point(190, 43)
-        Button2.Margin = New Padding(2)
-        Button2.Name = "Button2"
-        Button2.Size = New Size(197, 64)
-        Button2.TabIndex = 1
-        Button2.Text = "CLIENTS"
-        Button2.UseVisualStyleBackColor = False
+        Button_Client.BackColor = Color.NavajoWhite
+        Button_Client.Font = New Font("Cooper Black", 11F, FontStyle.Regular, GraphicsUnit.Point)
+        Button_Client.ForeColor = Color.MidnightBlue
+        Button_Client.Location = New Point(190, 43)
+        Button_Client.Margin = New Padding(2)
+        Button_Client.Name = "Button_Client"
+        Button_Client.Size = New Size(197, 64)
+        Button_Client.TabIndex = 1
+        Button_Client.Text = "CLIENTS"
+        Button_Client.UseVisualStyleBackColor = False
         ' 
-        ' Button3
+        ' Button_Property
         ' 
-        Button3.BackColor = Color.NavajoWhite
-        Button3.Font = New Font("Cooper Black", 11F, FontStyle.Regular, GraphicsUnit.Point)
-        Button3.ForeColor = Color.MidnightBlue
-        Button3.Location = New Point(391, 45)
-        Button3.Margin = New Padding(2)
-        Button3.Name = "Button3"
-        Button3.Size = New Size(194, 62)
-        Button3.TabIndex = 2
-        Button3.Text = "PROPERTIES"
-        Button3.UseVisualStyleBackColor = False
+        Button_Property.BackColor = Color.NavajoWhite
+        Button_Property.Font = New Font("Cooper Black", 11F, FontStyle.Regular, GraphicsUnit.Point)
+        Button_Property.ForeColor = Color.MidnightBlue
+        Button_Property.Location = New Point(391, 45)
+        Button_Property.Margin = New Padding(2)
+        Button_Property.Name = "Button_Property"
+        Button_Property.Size = New Size(194, 62)
+        Button_Property.TabIndex = 2
+        Button_Property.Text = "PROPERTIES"
+        Button_Property.UseVisualStyleBackColor = False
         ' 
         ' ButtonIMAGES
         ' 
@@ -207,8 +207,8 @@ Partial Class MainForm
     Friend WithEvents Button_Owner As Button
     Friend WithEvents ButtonIMAGES As Button
     Friend WithEvents ButtonTypes As Button
-    Friend WithEvents Button3 As Button
-    Friend WithEvents Button2 As Button
+    Friend WithEvents Button_Property As Button
+    Friend WithEvents Button_Client As Button
     Friend WithEvents Panel1 As Panel
     Friend WithEvents PanelLeft As Panel
     Friend WithEvents PanelRight As Panel

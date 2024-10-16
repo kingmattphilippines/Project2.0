@@ -1,43 +1,61 @@
 ﻿Public Class MainForm
 
+    ' Declare forms
     Dim ownersf As New OwnerForm()
     Dim propertyF As New PropertyForm()
     Dim property_type As New TypeForm()
     Dim clientsF As New ClientForm()
     Dim propImagesF As New PropertyImageForm()
     Dim salesF As New SalesForm()
-    'make it the all item in sidebar
 
+    ' MainForm Load event
     Private Sub Main_Form_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        ' Center Panel1 and Panel2 at the top
+        ' Center panels
         CenterPanelAtTop(Panel_Menu)
         CenterPanelAtTop(Panel2)
 
-        ' Adjust the panel sizes to fill the height of the form
+        ' Adjust panel sizes
         PanelLeft.Size = New Size(PanelLeft.Width, ClientSize.Height)
         PanelRight.Size = New Size(PanelRight.Width, ClientSize.Height)
         PanelRight.Location = New Point(ClientSize.Width - PanelRight.Width, 0)
     End Sub
 
+    ' Center the specified panel at the top of the form
     Private Sub CenterPanelAtTop(panel As Panel)
-        ' Center the specified panel at the top of the form
         panel.Location = New Point((ClientSize.Width - panel.Width) / 2, 0)
     End Sub
 
-    ' Method to display a form below Panel2 with 1-inch space
-    Private Sub DisplayFormBelowPanel2(formToShow As Form)
-        ' Hide all other forms
-        HideAllForms()
+    ' Display a form as a dialog
+    Private Sub DisplayFormAsDialog(ByRef formToShow As Form)
+        Try
+            ' If the form is disposed, create a new instance
+            If formToShow Is Nothing OrElse formToShow.IsDisposed Then
+                Select Case formToShow.GetType().Name
+                    Case "OwnerForm"
+                        formToShow = New OwnerForm()
+                    Case "ClientForm"
+                        formToShow = New ClientForm()
+                    Case "PropertyForm"
+                        formToShow = New PropertyForm()
+                    Case "TypeForm"
+                        formToShow = New TypeForm()
+                    Case "PropertyImageForm"
+                        formToShow = New PropertyImageForm()
+                    Case "SalesForm"
+                        formToShow = New SalesForm()
+                End Select
+            End If
 
-        ' Set the form location to be below Panel2 with 1-inch space (96 pixels)
-        formToShow.TopLevel = False ' This makes the form a child control of the main form
-        formToShow.FormBorderStyle = FormBorderStyle.None ' Remove the border
-        formToShow.Location = New Point(Panel2.Left, Panel2.Bottom + 30) '  pixels below Panel2
-        formToShow.Size = New Size(Panel2.Width, formToShow.Height) ' Adjust width to match Panel2
-        formToShow.Anchor = AnchorStyles.Top ' Anchor to the top
-        Me.Controls.Add(formToShow) ' Add the form to the main form controls
-        formToShow.Show() ' Show the form
-        formToShow.BringToFront() ' Bring to front
+            ' Hide all other forms
+            HideAllForms()
+
+            ' Show the form as a dialog
+            formToShow.ShowDialog(Me) ' Show as a modal dialog
+
+        Catch ex As Exception
+            ' Handle exceptions
+            MessageBox.Show("An error occurred: " & ex.Message)
+        End Try
     End Sub
 
     ' Hide all forms
@@ -50,39 +68,36 @@
         clientsF.Hide()
     End Sub
 
-    ' Button click to display OwnerForm
-    Private Sub Button_Owner_Click(sender As Object, e As EventArgs) Handles Button_Owner.Click
-        DisplayFormBelowPanel2(ownersf)
+    ' Unified button click handler to display the corresponding form
+    Private Sub Button_Click(sender As Object, e As EventArgs) Handles Button_Owner.Click, Button_Client.Click, Button_Property.Click, ButtonTypes.Click, ButtonIMAGES.Click, SALES.Click
+        Dim formToShow As Form = Nothing
+
+        Select Case DirectCast(sender, Button).Name
+            Case Button_Owner.Name
+                formToShow = ownersf
+            Case Button_Client.Name
+                formToShow = clientsF
+            Case Button_Property.Name
+                formToShow = propertyF
+            Case ButtonTypes.Name
+                formToShow = property_type
+            Case ButtonIMAGES.Name
+                formToShow = propImagesF
+            Case SALES.Name
+                formToShow = salesF
+        End Select
+
+        If formToShow IsNot Nothing Then
+            DisplayFormAsDialog(formToShow) ' Call the method to show the form as a dialog
+        End If
     End Sub
 
-    ' Button click to display PropertyForm
-    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
-        DisplayFormBelowPanel2(propertyF)
-    End Sub
-
-    ' Button click to display TypeForm
-
-
-    ' Button click to display ClientForm
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        DisplayFormBelowPanel2(clientsF)
-    End Sub
-
-    ' Button click to display PropertyImageForm
-    Private Sub ButtonIMAGES_Click(sender As Object, e As EventArgs) Handles ButtonIMAGES.Click
-        DisplayFormBelowPanel2(propImagesF)
-    End Sub
-
-    ' Button click to display SalesForm
-    Private Sub SALES_Click(sender As Object, e As EventArgs) Handles SALES.Click
-        DisplayFormBelowPanel2(salesF)
-    End Sub
-
+    ' Logout button click handler
     Private Sub btnLogout_Click(sender As Object, e As EventArgs) Handles btnLogout.Click
         ' Create a list to hold forms to close
         Dim formsToClose As New List(Of Form)
 
-        ' Add all open forms to the list
+        ' Add all open forms to the list except the current form
         For Each form As Form In Application.OpenForms
             If form IsNot Me Then
                 formsToClose.Add(form)
@@ -95,18 +110,11 @@
         Next
 
         ' Show the login form
-        Dim loginForm As New LoginForm() ' Replace LoginForm with the actual name of your login form
+        Dim loginForm As New LoginForm()
         loginForm.Show()
 
         ' Optionally close the current form
         Close()
     End Sub
 
-    Private Sub Button4_Click(sender As Object, e As EventArgs)
-
-    End Sub
-
-    Private Sub ButtonTypes_Click(sender As Object, e As EventArgs) Handles ButtonTypes.Click
-        DisplayFormBelowPanel2(property_type)
-    End Sub
 End Class
