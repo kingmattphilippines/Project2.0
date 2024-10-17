@@ -24,20 +24,7 @@ Public Class SALES
         Return ExecuteQuery(query, parameters)
     End Function
 
-    '' Edit sale
-    'Function editSale(saleId As Integer, propertyId As Integer, clientId As Integer, ByVal sellingPrice As Decimal, ByVal sellingDate As Date) As Boolean
-    '    query = "UPDATE `prop_sale` SET `propertyid`=@property, `clientid`=@client, `selling_price`=@price, `selling_date`=@date WHERE `id`=@id"
-    '    Dim parameters As New List(Of MySqlParameter) From {
-    '        New MySqlParameter("@property", MySqlDbType.Int32) With {.Value = propertyId},
-    '        New MySqlParameter("@client", MySqlDbType.Int32) With {.Value = clientId},
-    '        New MySqlParameter("@price", MySqlDbType.Decimal) With {.Value = sellingPrice},
-    '        New MySqlParameter("@date", MySqlDbType.Date) With {.Value = sellingDate},
-    '        New MySqlParameter("@id", MySqlDbType.Int32) With {.Value = saleId}
-    '    }
 
-    '    Return ExecuteQuery(query, parameters)
-    'End Function
-    ' Edit sale
     Function editSale(saleId As Integer, propertyId As Integer, clientId As Integer, ByVal sellingPrice As Decimal, ByVal sellingDate As Date) As Boolean
         ' Validate parameters
         If saleId <= 0 Or propertyId <= 0 Or clientId <= 0 Or sellingPrice <= 0 Then
@@ -85,5 +72,10 @@ Public Class SALES
             Console.WriteLine("Error: " & ex.Message)
             Return False
         End Try
+    End Function
+
+    Function getSalesCount() As Integer
+        Dim command As New MySqlCommand("SELECT COUNT(*) FROM `prop_sale`")
+        Return func.exeCount(command) ' Ensure this method returns an Integer
     End Function
 End Class

@@ -24,6 +24,16 @@ Partial Class MainForm
     Private Sub InitializeComponent()
         Dim resources As ComponentModel.ComponentResourceManager = New ComponentModel.ComponentResourceManager(GetType(MainForm))
         Panel_Menu = New Panel()
+        PanelRight = New Panel()
+        PanelBlock = New Panel()
+        Panel5 = New Panel()
+        LabelSales = New Label()
+        Panel6 = New Panel()
+        LabelClients = New Label()
+        Panel4 = New Panel()
+        LabelOwners = New Label()
+        Panel3 = New Panel()
+        LabelProperties = New Label()
         btnLogout = New Button()
         Panel2 = New Panel()
         Button_Owner = New Button()
@@ -34,8 +44,12 @@ Partial Class MainForm
         ButtonIMAGES = New Button()
         ButtonTypes = New Button()
         PanelLeft = New Panel()
-        PanelRight = New Panel()
         Panel_Menu.SuspendLayout()
+        PanelBlock.SuspendLayout()
+        Panel5.SuspendLayout()
+        Panel6.SuspendLayout()
+        Panel4.SuspendLayout()
+        Panel3.SuspendLayout()
         Panel2.SuspendLayout()
         SuspendLayout()
         ' 
@@ -43,14 +57,121 @@ Partial Class MainForm
         ' 
         Panel_Menu.BackColor = Color.Silver
         Panel_Menu.BackgroundImageLayout = ImageLayout.Stretch
+        Panel_Menu.Controls.Add(PanelRight)
+        Panel_Menu.Controls.Add(PanelBlock)
         Panel_Menu.Controls.Add(btnLogout)
         Panel_Menu.Controls.Add(Panel2)
         Panel_Menu.Dock = DockStyle.Fill
         Panel_Menu.Location = New Point(0, 0)
         Panel_Menu.Margin = New Padding(2)
         Panel_Menu.Name = "Panel_Menu"
-        Panel_Menu.Size = New Size(1454, 840)
+        Panel_Menu.Size = New Size(1684, 840)
         Panel_Menu.TabIndex = 0
+        ' 
+        ' PanelRight
+        ' 
+        PanelRight.BackColor = Color.RosyBrown
+        PanelRight.Location = New Point(1479, 2)
+        PanelRight.Margin = New Padding(2)
+        PanelRight.Name = "PanelRight"
+        PanelRight.Size = New Size(4, 209)
+        PanelRight.TabIndex = 3
+        ' 
+        ' PanelBlock
+        ' 
+        PanelBlock.BackColor = Color.WhiteSmoke
+        PanelBlock.Controls.Add(Panel5)
+        PanelBlock.Controls.Add(Panel6)
+        PanelBlock.Controls.Add(Panel4)
+        PanelBlock.Controls.Add(Panel3)
+        PanelBlock.Location = New Point(275, 209)
+        PanelBlock.Name = "PanelBlock"
+        PanelBlock.Size = New Size(1200, 548)
+        PanelBlock.TabIndex = 4
+        ' 
+        ' Panel5
+        ' 
+        Panel5.BackColor = Color.SkyBlue
+        Panel5.Controls.Add(LabelSales)
+        Panel5.Location = New Point(597, 274)
+        Panel5.Name = "Panel5"
+        Panel5.Size = New Size(602, 295)
+        Panel5.TabIndex = 3
+        ' 
+        ' LabelSales
+        ' 
+        LabelSales.BackColor = Color.Transparent
+        LabelSales.Font = New Font("Segoe UI", 28.2F, FontStyle.Regular, GraphicsUnit.Point)
+        LabelSales.ForeColor = SystemColors.ControlLightLight
+        LabelSales.Location = New Point(0, 0)
+        LabelSales.Name = "LabelSales"
+        LabelSales.Size = New Size(598, 274)
+        LabelSales.TabIndex = 1
+        LabelSales.Text = "1000 Sale(s)"
+        LabelSales.TextAlign = ContentAlignment.MiddleCenter
+        ' 
+        ' Panel6
+        ' 
+        Panel6.BackColor = Color.SkyBlue
+        Panel6.Controls.Add(LabelClients)
+        Panel6.Location = New Point(-2, 274)
+        Panel6.Name = "Panel6"
+        Panel6.Size = New Size(593, 292)
+        Panel6.TabIndex = 2
+        ' 
+        ' LabelClients
+        ' 
+        LabelClients.BackColor = Color.Transparent
+        LabelClients.Font = New Font("Segoe UI", 28.2F, FontStyle.Regular, GraphicsUnit.Point)
+        LabelClients.ForeColor = SystemColors.ControlLightLight
+        LabelClients.Location = New Point(0, 0)
+        LabelClients.Name = "LabelClients"
+        LabelClients.Size = New Size(593, 274)
+        LabelClients.TabIndex = 1
+        LabelClients.Text = "1000  Client(s)"
+        LabelClients.TextAlign = ContentAlignment.MiddleCenter
+        ' 
+        ' Panel4
+        ' 
+        Panel4.BackColor = Color.SkyBlue
+        Panel4.Controls.Add(LabelOwners)
+        Panel4.Location = New Point(597, 0)
+        Panel4.Name = "Panel4"
+        Panel4.Size = New Size(602, 268)
+        Panel4.TabIndex = 1
+        ' 
+        ' LabelOwners
+        ' 
+        LabelOwners.BackColor = Color.Transparent
+        LabelOwners.Font = New Font("Segoe UI", 28.2F, FontStyle.Regular, GraphicsUnit.Point)
+        LabelOwners.ForeColor = SystemColors.ControlLightLight
+        LabelOwners.Location = New Point(5, 0)
+        LabelOwners.Name = "LabelOwners"
+        LabelOwners.Size = New Size(593, 268)
+        LabelOwners.TabIndex = 1
+        LabelOwners.Text = "1000  Owner(s)"
+        LabelOwners.TextAlign = ContentAlignment.MiddleCenter
+        ' 
+        ' Panel3
+        ' 
+        Panel3.BackColor = Color.SkyBlue
+        Panel3.Controls.Add(LabelProperties)
+        Panel3.Location = New Point(-2, -7)
+        Panel3.Name = "Panel3"
+        Panel3.Size = New Size(593, 275)
+        Panel3.TabIndex = 0
+        ' 
+        ' LabelProperties
+        ' 
+        LabelProperties.BackColor = Color.Transparent
+        LabelProperties.Font = New Font("Segoe UI", 28.2F, FontStyle.Regular, GraphicsUnit.Point)
+        LabelProperties.ForeColor = SystemColors.ControlLightLight
+        LabelProperties.Location = New Point(3, 7)
+        LabelProperties.Name = "LabelProperties"
+        LabelProperties.Size = New Size(593, 268)
+        LabelProperties.TabIndex = 0
+        LabelProperties.Text = "1000  Propertie(s)"
+        LabelProperties.TextAlign = ContentAlignment.MiddleCenter
         ' 
         ' btnLogout
         ' 
@@ -73,7 +194,7 @@ Partial Class MainForm
         Panel2.Controls.Add(Button_Property)
         Panel2.Controls.Add(ButtonIMAGES)
         Panel2.Controls.Add(ButtonTypes)
-        Panel2.Location = New Point(104, 2)
+        Panel2.Location = New Point(275, 11)
         Panel2.Margin = New Padding(2)
         Panel2.Name = "Panel2"
         Panel2.Size = New Size(1202, 145)
@@ -82,7 +203,7 @@ Partial Class MainForm
         ' Button_Owner
         ' 
         Button_Owner.BackColor = Color.NavajoWhite
-        Button_Owner.Font = New Font("Cooper Black", 11F, FontStyle.Regular, GraphicsUnit.Point)
+        Button_Owner.Font = New Font("Cooper Black", 11.0F, FontStyle.Regular, GraphicsUnit.Point)
         Button_Owner.ForeColor = Color.MidnightBlue
         Button_Owner.Location = New Point(0, 42)
         Button_Owner.Margin = New Padding(2)
@@ -95,7 +216,7 @@ Partial Class MainForm
         ' SALES
         ' 
         SALES.BackColor = Color.NavajoWhite
-        SALES.Font = New Font("Cooper Black", 11F, FontStyle.Regular, GraphicsUnit.Point)
+        SALES.Font = New Font("Cooper Black", 11.0F, FontStyle.Regular, GraphicsUnit.Point)
         SALES.ForeColor = Color.MidnightBlue
         SALES.Location = New Point(1006, 42)
         SALES.Margin = New Padding(2)
@@ -117,7 +238,7 @@ Partial Class MainForm
         ' Button_Client
         ' 
         Button_Client.BackColor = Color.NavajoWhite
-        Button_Client.Font = New Font("Cooper Black", 11F, FontStyle.Regular, GraphicsUnit.Point)
+        Button_Client.Font = New Font("Cooper Black", 11.0F, FontStyle.Regular, GraphicsUnit.Point)
         Button_Client.ForeColor = Color.MidnightBlue
         Button_Client.Location = New Point(190, 43)
         Button_Client.Margin = New Padding(2)
@@ -130,7 +251,7 @@ Partial Class MainForm
         ' Button_Property
         ' 
         Button_Property.BackColor = Color.NavajoWhite
-        Button_Property.Font = New Font("Cooper Black", 11F, FontStyle.Regular, GraphicsUnit.Point)
+        Button_Property.Font = New Font("Cooper Black", 11.0F, FontStyle.Regular, GraphicsUnit.Point)
         Button_Property.ForeColor = Color.MidnightBlue
         Button_Property.Location = New Point(391, 45)
         Button_Property.Margin = New Padding(2)
@@ -143,7 +264,7 @@ Partial Class MainForm
         ' ButtonIMAGES
         ' 
         ButtonIMAGES.BackColor = Color.NavajoWhite
-        ButtonIMAGES.Font = New Font("Cooper Black", 11F, FontStyle.Regular, GraphicsUnit.Point)
+        ButtonIMAGES.Font = New Font("Cooper Black", 11.0F, FontStyle.Regular, GraphicsUnit.Point)
         ButtonIMAGES.ForeColor = Color.MidnightBlue
         ButtonIMAGES.Location = New Point(798, 44)
         ButtonIMAGES.Margin = New Padding(2)
@@ -156,7 +277,7 @@ Partial Class MainForm
         ' ButtonTypes
         ' 
         ButtonTypes.BackColor = Color.NavajoWhite
-        ButtonTypes.Font = New Font("Cooper Black", 11F, FontStyle.Regular, GraphicsUnit.Point)
+        ButtonTypes.Font = New Font("Cooper Black", 11.0F, FontStyle.Regular, GraphicsUnit.Point)
         ButtonTypes.ForeColor = Color.MidnightBlue
         ButtonTypes.Location = New Point(590, 45)
         ButtonTypes.Margin = New Padding(2)
@@ -175,22 +296,12 @@ Partial Class MainForm
         PanelLeft.Size = New Size(4, 209)
         PanelLeft.TabIndex = 2
         ' 
-        ' PanelRight
-        ' 
-        PanelRight.BackColor = Color.RosyBrown
-        PanelRight.Location = New Point(1450, 0)
-        PanelRight.Margin = New Padding(2)
-        PanelRight.Name = "PanelRight"
-        PanelRight.Size = New Size(4, 209)
-        PanelRight.TabIndex = 3
-        ' 
         ' MainForm
         ' 
-        AutoScaleDimensions = New SizeF(8F, 20F)
+        AutoScaleDimensions = New SizeF(8.0F, 20.0F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.White
-        ClientSize = New Size(1454, 840)
-        Controls.Add(PanelRight)
+        ClientSize = New Size(1684, 840)
         Controls.Add(PanelLeft)
         Controls.Add(Panel_Menu)
         Margin = New Padding(2)
@@ -199,6 +310,11 @@ Partial Class MainForm
         Text = "-"
         WindowState = FormWindowState.Maximized
         Panel_Menu.ResumeLayout(False)
+        PanelBlock.ResumeLayout(False)
+        Panel5.ResumeLayout(False)
+        Panel6.ResumeLayout(False)
+        Panel4.ResumeLayout(False)
+        Panel3.ResumeLayout(False)
         Panel2.ResumeLayout(False)
         ResumeLayout(False)
     End Sub
@@ -215,4 +331,17 @@ Partial Class MainForm
     Friend WithEvents SALES As Button
     Friend WithEvents Panel2 As Panel
     Friend WithEvents btnLogout As Button
+    Friend WithEvents PanelBlock As Panel
+    Friend WithEvents Panel5 As Panel
+    Friend WithEvents Panel6 As Panel
+    Friend WithEvents Panel4 As Panel
+    Friend WithEvents Panel3 As Panel
+    Friend WithEvents Label2 As Label
+    Friend WithEvents Label4 As Label
+    Friend WithEvents Label3 As Label
+    Friend WithEvents Label1 As Label
+    Friend WithEvents LabelSales As Label
+    Friend WithEvents LabelClients As Label
+    Friend WithEvents LabelOwners As Label
+    Friend WithEvents LabelProperties As Label
 End Class

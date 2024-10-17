@@ -8,7 +8,13 @@
     Dim propImagesF As New PropertyImageForm()
     Dim salesF As New SalesForm()
 
-    ' MainForm Load event
+
+    ' Center the specified panel at the top of the form
+    Private Sub CenterPanelAtTop(panel As Panel)
+        panel.Location = New Point((ClientSize.Width - panel.Width) / 2, 0)
+    End Sub
+
+
     Private Sub Main_Form_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ' Center panels
         CenterPanelAtTop(Panel_Menu)
@@ -18,12 +24,18 @@
         PanelLeft.Size = New Size(PanelLeft.Width, ClientSize.Height)
         PanelRight.Size = New Size(PanelRight.Width, ClientSize.Height)
         PanelRight.Location = New Point(ClientSize.Width - PanelRight.Width, 0)
+
+        ' Display the count of properties
+
+
+
+        LabelProperties.Text = New The_Property().getPropertiesCount().ToString + " Property(ies)"
+        LabelOwners.Text = New OWNERS_CLIENTS().getCount("owner").ToString + " Owner(ies)"
+        LabelClients.Text = New OWNERS_CLIENTS().getCount("client").ToString + " Client(ies)"
+        LabelSales.Text = New SALES().getSalesCount().ToString + " Sale(ies)"
+
     End Sub
 
-    ' Center the specified panel at the top of the form
-    Private Sub CenterPanelAtTop(panel As Panel)
-        panel.Location = New Point((ClientSize.Width - panel.Width) / 2, 0)
-    End Sub
 
     ' Display a form as a dialog
     Private Sub DisplayFormAsDialog(ByRef formToShow As Form)
@@ -116,5 +128,10 @@
         ' Optionally close the current form
         Close()
     End Sub
+
+
+
+
+
 
 End Class

@@ -40,17 +40,43 @@ Public Class OWNERS_CLIENTS
             End Using
         End Function
 
-        ' Create function to delete the selected owner/client
-        Function deletePerson(ByVal personType As String, ByVal personId As Integer) As Boolean
-            Dim query As String = $"DELETE FROM `{personType}` WHERE id=@id"
+    ' Create function to delete the selected owner/client
+    Function deletePerson(ByVal personType As String, ByVal personId As Integer) As Boolean
+        Dim query As String = $"DELETE FROM `{personType}` WHERE id=@id"
 
-            Using conn As MySqlConnection = db.getConnection()
-                db.openConnection(conn)
-                Using command As New MySqlCommand(query, conn)
-                    command.Parameters.AddWithValue("@id", personId)
-                    Return command.ExecuteNonQuery() > 0 ' Return true if a row was deleted
-                End Using
+        Using conn As MySqlConnection = db.getConnection()
+            db.openConnection(conn)
+            Using command As New MySqlCommand(query, conn)
+                command.Parameters.AddWithValue("@id", personId)
+                Return command.ExecuteNonQuery() > 0 ' Return true if a row was deleted
             End Using
-        End Function
-    End Class
+        End Using
+    End Function
+
+    Function getCount(ByVal tablename As String) As Integer
+        Dim query As String = ""
+
+        If tablename.Equals("client", StringComparison.OrdinalIgnoreCase) Then
+            query = "SELECT COUNT(*) FROM `clients`"
+        ElseIf tablename.Equals("owner", StringComparison.OrdinalIgnoreCase) Then
+            query = "SELECT COUNT(*) FROM `prop_owner`"
+        Else
+            MessageBox.Show("Unknown table name: " & tablename, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return -1 ' Indicate an error
+        End If
+
+        ' Ensure command is created with the valid query
+        Dim command As New MySqlCommand(query)
+
+        ' Assuming 'Func' is an instance of MYFUNCTION
+        Dim func As New MYFUNCTION()
+
+        ' Return the count using the exeCount function
+        Return func.exeCount(command)
+    End Function
+
+
+
+
+End Class
 
