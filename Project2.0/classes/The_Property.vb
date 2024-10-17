@@ -159,4 +159,13 @@ Public Class The_Property
         End If
     End Function
 
+    'get properties count
+    Function getPropertiesCount() As Integer
+        Dim command As New MySqlCommand("SELECT COUNT(*) FROM `the_property`")
+        Return func.exeCount(command) ' Ensure this method returns an Integer
+    End Function
+
+
+
+
 End Class
